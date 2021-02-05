@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  ExploreViewController.swift
 //  InstagramAppSample
 //
-//  Created by Darya Kuliashova on 4.02.21.
+//  Created by Darya Kuliashova on 5.02.21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExploreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
-
