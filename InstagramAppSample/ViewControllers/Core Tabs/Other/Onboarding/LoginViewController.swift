@@ -144,6 +144,8 @@ class LoginViewController: UIViewController {
                                      height: 50)
     }
     
+    //MARK: - Private functions
+    
     private func configureHeaderView() {
         guard headerView.subviews.count == 1 else {
             return
@@ -210,7 +212,8 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapCreateAccountButton() {
         let vc = RegistrationViewController()
-        present(vc, animated: true, completion: nil)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
     @objc private func didTapTermsButton() {
@@ -229,6 +232,8 @@ class LoginViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
 }
+
+//MARK: - Extensions
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
