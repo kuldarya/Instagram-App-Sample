@@ -177,11 +177,35 @@ class LoginViewController: UIViewController {
         usernameEmailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         
+        loginUser()
+    }
+    
+    private func loginUser() {
         guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,
-              let password = passwordField.text, !password.count >= 8 else {
+              let password = passwordField.text, password.count >= 8 else {
             return
         }
-        //login functionality
+        
+        var userName: String?
+        var email: String?
+        
+        if usernameEmail.contains("@"), usernameEmail.contains(".") {
+            email = usernameEmail
+        } else {
+            userName = usernameEmail
+        }
+        
+        AuthManager.shared.loginUser(username: userName, email: email , password: password) { success in
+            DispatchQueue.main.async {
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    let alert = UIAlertController(title: "Log In Error", message: "We were unable to log you in.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     @objc private func didTapCreateAccountButton() {
@@ -190,7 +214,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapTermsButton() {
-        guard let url = URL(string: "https://www.instagram.com/about/legal/terms/before-january-19-2013/") else {
+        guard let url = URL(string: TextConstants.Url.terms) else {
             return
         }
         let vc = SFSafariViewController(url: url)
@@ -198,7 +222,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapPrivacyButton() {
-        guard let url = URL(string: "https://help.instagram.com/519522125107875") else {
+        guard let url = URL(string: TextConstants.Url.privacy) else {
             return
         }
         let vc = SFSafariViewController(url: url)
