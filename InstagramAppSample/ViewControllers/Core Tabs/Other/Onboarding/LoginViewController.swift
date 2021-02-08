@@ -88,18 +88,25 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
-        createAccountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
-        privacyButton.addTarget(self, action: #selector(didTapPrivacyButton), for: .touchUpInside)
-        termsButton.addTarget(self, action: #selector(didTapTermsButton), for: .touchUpInside)
 
         view.backgroundColor = .systemBackground
         
         usernameEmailField.delegate = self
         passwordField.delegate = self
         
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+        createAccountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
+        privacyButton.addTarget(self, action: #selector(didTapPrivacyButton), for: .touchUpInside)
+        termsButton.addTarget(self, action: #selector(didTapTermsButton), for: .touchUpInside)
+        
         addSubviews()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        usernameEmailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
     }
     
     //MARK: - Subviews
@@ -176,9 +183,6 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapLoginButton() {
-        usernameEmailField.resignFirstResponder()
-        passwordField.resignFirstResponder()
-        
         loginUser()
     }
     
@@ -197,11 +201,12 @@ class LoginViewController: UIViewController {
             userName = usernameEmail
         }
         
-        AuthManager.shared.loginUser(username: userName, email: email , password: password) { success in
+        AuthManager.shared.loginUser(email: email, username: userName, password: password) { success in
             DispatchQueue.main.async {
                 if success {
                     self.dismiss(animated: true, completion: nil)
                 } else {
+                    // TODO: make extension for alert
                     let alert = UIAlertController(title: "Log In Error", message: "We were unable to log you in.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
