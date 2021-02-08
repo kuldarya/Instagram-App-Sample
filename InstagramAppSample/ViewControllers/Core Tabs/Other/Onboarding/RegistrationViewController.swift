@@ -75,15 +75,23 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        registrationButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
-        
         view.backgroundColor = .systemBackground
-        
+                
         usernameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
         
+        registrationButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
+        
         addSubviews()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        usernameField.resignFirstResponder()
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
     }
     
     //MARK: - Subviews
@@ -107,16 +115,24 @@ class RegistrationViewController: UIViewController {
     }
     
     @objc private func didTapRegister() {
-        usernameField.resignFirstResponder()
-        emailField.resignFirstResponder()
-        passwordField.resignFirstResponder()
-        
+        registerUser()
+    }
+    
+    private func registerUser() {
         guard let username = usernameField.text, !username.isEmpty,
               let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
             return
         }
         
+        AuthManager.shared.registerNewUser(email: email, username: username, password: password) { registered in
+            if registered {
+                print("good to go!")
+                // good to go
+            } else {
+                // we failed
+            }
+        }
     }
 }
 
