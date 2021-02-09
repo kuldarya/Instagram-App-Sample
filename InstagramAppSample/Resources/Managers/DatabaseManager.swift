@@ -18,8 +18,8 @@ public class DatabaseManager {
     /// - Parameters:
     ///     - username: String representing username
     ///     - email: String representing email
-    public func canCreateNewUser(username: String, email: String, completion: (Bool) -> Void) {
-        
+    public func canCreateNewUser(with email: String, username: String, completion: (Bool) -> Void) {
+        completion(true)
     }
     
     /// Inserts new user to database
