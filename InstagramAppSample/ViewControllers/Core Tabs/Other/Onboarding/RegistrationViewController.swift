@@ -126,11 +126,13 @@ class RegistrationViewController: UIViewController {
         }
         
         AuthManager.shared.registerNewUser(email: email, username: username, password: password) { registered in
-            if registered {
-                print("good to go!")
-                // good to go
-            } else {
-                // we failed
+            DispatchQueue.main.async {
+                if registered {
+                    print("good to go!")
+                    // good to go
+                } else {
+                    // we failed
+                }
             }
         }
     }

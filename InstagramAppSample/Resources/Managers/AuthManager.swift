@@ -13,11 +13,12 @@ public class AuthManager {
     // MARK: - Public
     
     public func registerNewUser(email: String, username: String, password: String, completion: @escaping (Bool) -> Void) {
-        DatabaseManager.shared.canCreateNewUser(username: username, email: email) { canCreate in
+        DatabaseManager.shared.canCreateNewUser(with: email, username: username) { canCreate in
             if canCreate {
                 Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                     guard error == nil, result != nil else {
-                        assertionFailure("Firebase auth could not create account")
+                        // Firebase auth could not create account
+                        completion(false)
                         return
                     }
                     // Insert to Database
@@ -34,7 +35,6 @@ public class AuthManager {
                 }
             } else {
                 completion(false)
-                assertionFailure("Either username or email does not exist")
             }
         }
     }
@@ -49,7 +49,7 @@ public class AuthManager {
                 completion(true)
             }
         } else if let username = username {
-            print(username)
+           // print(username)
         }
     }
 }
