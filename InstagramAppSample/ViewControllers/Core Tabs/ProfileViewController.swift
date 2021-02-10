@@ -8,10 +8,17 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    private let settingsVC = SettingsViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
     }
+    
+    @IBAction private func didTapMenuButton(_ sender: UIBarButtonItem) {
+        
+    }
+    
 }

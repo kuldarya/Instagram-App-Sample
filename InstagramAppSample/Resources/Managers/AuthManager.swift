@@ -49,7 +49,19 @@ public class AuthManager {
                 completion(true)
             }
         } else if let username = username {
-           // print(username)
+            print(username)
+        }
+    }
+    
+    public func logOut(completion: (Bool) -> ()) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+            return
+        } catch {
+            assertionFailure(error.localizedDescription)
+            completion(false)
+            return
         }
     }
 }
