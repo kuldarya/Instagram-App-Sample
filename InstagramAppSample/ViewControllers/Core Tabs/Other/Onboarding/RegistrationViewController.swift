@@ -122,6 +122,7 @@ class RegistrationViewController: UIViewController {
         guard let username = usernameField.text, !username.isEmpty,
               let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+            // alert for short password
             return
         }
         

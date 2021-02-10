@@ -9,8 +9,6 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private let settingsVC = SettingsViewController()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +16,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction private func didTapMenuButton(_ sender: UIBarButtonItem) {
-        
+        let settingsVC = SettingsViewController()
+        settingsVC.title = "Settings"
+        navigationController?.pushViewController(settingsVC, animated: true)
     }
-    
 }
