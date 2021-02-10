@@ -35,6 +35,8 @@
 		4B85A36A25CD8EBD000EA227 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A36925CD8EBD000EA227 /* UIView+Utils.swift */; };
 		4B85A36E25CD91E6000EA227 /* TextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A36D25CD91E6000EA227 /* TextConstants.swift */; };
 		4B85A49025D1B802000EA227 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A48F25D1B802000EA227 /* String+Utils.swift */; };
+		4B85A4AA25D41FB9000EA227 /* NSObject+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A4A925D41FB9000EA227 /* NSObject+Utils.swift */; };
+		4B85A4AD25D42076000EA227 /* SettingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A4AC25D42076000EA227 /* SettingCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		4B85A36925CD8EBD000EA227 /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		4B85A36D25CD91E6000EA227 /* TextConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstants.swift; sourceTree = "<group>"; };
 		4B85A48F25D1B802000EA227 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		4B85A4A925D41FB9000EA227 /* NSObject+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Utils.swift"; sourceTree = "<group>"; };
+		4B85A4AC25D42076000EA227 /* SettingCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellModel.swift; sourceTree = "<group>"; };
 		625A55F886BABD9345349AF9 /* Pods-InstagramAppSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramAppSample.debug.xcconfig"; path = "Target Support Files/Pods-InstagramAppSample/Pods-InstagramAppSample.debug.xcconfig"; sourceTree = "<group>"; };
 		DFC5BE5706A626E92D89BFA9 /* Pods-InstagramAppSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramAppSample.release.xcconfig"; path = "Target Support Files/Pods-InstagramAppSample/Pods-InstagramAppSample.release.xcconfig"; sourceTree = "<group>"; };
 		E98B511E8D5D02610CFE5E21 /* Pods_InstagramAppSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramAppSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,7 @@
 		4B6F2D0025CD4091001A0549 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4B85A4AC25D42076000EA227 /* SettingCellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,9 +199,9 @@
 		4B85A2F925CD526B000EA227 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				4B6F2D1D25CD4242001A0549 /* SettingsViewController.swift */,
 				4B6F2D1725CD41EF001A0549 /* PostViewController.swift */,
 				4B6F2D1A25CD4224001A0549 /* EditProfileViewController.swift */,
-				4B6F2D1D25CD4242001A0549 /* SettingsViewController.swift */,
 				4B6F2D2125CD4267001A0549 /* ListViewController.swift */,
 				4B6F2D2425CD4286001A0549 /* SearchViewController.swift */,
 				4B6F2D2725CD42A2001A0549 /* SearchResultViewController.swift */,
@@ -221,6 +226,7 @@
 			children = (
 				4B85A36925CD8EBD000EA227 /* UIView+Utils.swift */,
 				4B85A48F25D1B802000EA227 /* String+Utils.swift */,
+				4B85A4A925D41FB9000EA227 /* NSObject+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 				4B6F2D1825CD41EF001A0549 /* PostViewController.swift in Sources */,
 				4B85A49025D1B802000EA227 /* String+Utils.swift in Sources */,
 				4B6F2D0525CD4112001A0549 /* ExploreViewController.swift in Sources */,
+				4B85A4AA25D41FB9000EA227 /* NSObject+Utils.swift in Sources */,
 				4B6F2D2225CD4267001A0549 /* ListViewController.swift in Sources */,
 				4B6F2D1E25CD4242001A0549 /* SettingsViewController.swift in Sources */,
 				4B6F2D0925CD4138001A0549 /* CameraViewController.swift in Sources */,
@@ -376,6 +383,7 @@
 				4B6F2D0F25CD4168001A0549 /* ProfileViewController.swift in Sources */,
 				4B85A32525CD7FE2000EA227 /* AuthManager.swift in Sources */,
 				4B85A36A25CD8EBD000EA227 /* UIView+Utils.swift in Sources */,
+				4B85A4AD25D42076000EA227 /* SettingCellModel.swift in Sources */,
 				4B6F2D2B25CD42DC001A0549 /* PostEditorViewController.swift in Sources */,
 				4B6F2CE825CC7AF4001A0549 /* AppDelegate.swift in Sources */,
 				4B6F2D1B25CD4224001A0549 /* EditProfileViewController.swift in Sources */,
